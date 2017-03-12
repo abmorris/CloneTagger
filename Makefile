@@ -35,10 +35,12 @@ all : $(LIBDIR)/lib$(MAIN).$(LIBEXT)
 # Make object files
 objects : $(OBJS)
 # Return flags for compiling with this library
-incflags :
+cflags :
 	@echo -I$(shell pwd)/$(HDRDIR)
-libflags :
-	@echo -L$(shell pwd)/$(LIBDIR) -l$(MAIN)
+libs :
+	@echo -l$(MAIN)
+libdir :
+	@echo $(shell pwd)/$(LIBDIR)
 # Build libraries
 $(LIBDIR)/lib%.$(LIBEXT) : $(OBJS) | $(LIBDIR)
 	@echo "Making shared object $@"
@@ -52,4 +54,4 @@ $(OBJDIR) $(LIBDIR) :
 # Remove all the output
 clean :
 	$(RM) $(OUTPUT)
-.PHONY : all clean objects libflags
+.PHONY : all clean objects cflags libs libdir
