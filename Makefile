@@ -28,7 +28,7 @@ OBJS      := $(patsubst $(SRCDIR)/%.$(SRCEXT),$(OBJDIR)/%.$(OBJEXT),$(SRCS))
 OUTPUT     = $(OBJDIR)/*.$(OBJEXT) $(LIBDIR)/*.$(LIBEXT)
 
 # Compiler flags
-CXXFLAGS   = -Wall -Werror -fPIC -I$(HDRDIR)
+CXXFLAGS   = -Wall -Werror -fPIC -std=c++1y -I$(HDRDIR)
 
 # Make the libraries
 all : $(LIBDIR)/lib$(MAIN).$(LIBEXT)
